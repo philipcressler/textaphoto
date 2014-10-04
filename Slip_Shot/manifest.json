@@ -9,12 +9,10 @@
           "16": "icon.png"
         },
     "background": {
-    "scripts": ["buzzPost.js"]
+    "scripts": ["background.js"]
   },
   "permissions": [
-    "tabs",
-    "contextMenus",
-    "http://www.google.com/buzz/api/buzzThis/buzzCounter"
+    "contextMenus"
   ]
 }
 
