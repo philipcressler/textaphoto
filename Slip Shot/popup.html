@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
     <title>Slip Shot Popup</title>
@@ -8,24 +8,24 @@
         overflow-x: hidden;
       }
 
-      img {
-        margin: 5px;
-        border: 2px solid black;
-        vertical-align: middle;
-        width: 75px;
-        height: 75px;
-      }
+      #div1 {
+	    width:70px;
+		height:70px;
+		padding:10px;
+		border:1px solid #000066;
+		background: #EEE;
+	  }
+
     </style>
 
-    <!--
-      - JavaScript and HTML must be in separate files: see our Content Security
-      - Policy documentation[1] for details and explanation.
-      -
-      - [1]: http://developer.chrome.com/extensions/contentSecurityPolicy.html
-     -->
     <script src="popup.js"></script>
   </head>
   <body>
+  <p>Drag the W3Schools image into the rectangle:</p>
+
+<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<br>
+<img id="drag1" src="icon.png" draggable="true" ondragstart="drag(event)" width="69" height="69">
   </body>
 </html>
 
