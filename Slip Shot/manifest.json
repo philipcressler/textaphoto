@@ -11,8 +11,9 @@
   },
   "permissions": [
     "downloads",
-    "contextMenus"
-    "https://api.twilio.com/*"
+    "contextMenus",
+    "https://api.twilio.com/*",
+    "*slipshot-hackathon.appspot.com/*"
   ],
 
   "icons": {

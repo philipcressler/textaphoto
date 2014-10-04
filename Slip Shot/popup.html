@@ -16,15 +16,14 @@
         height: 75px;
       }
     </style>
-
+    <script src="popup.js"></script>
     <div>
-    <form id="submitMessage">
-    Url of image: <input type="text" name="mediaUrl"><br>
-    send to: <input type="text" name="phoneNumber"><br>
+    <form method="POST" id="submitMessage" >
+    Url of image: <input type="text" name="mediaURL"><br>
+    send to: <input type="text" name="outgoingNumber"><br>
     <input type="submit" name="submit" value="Send">
     </form>
     </div>
-    <script src="popup.js"></script>
   </head>
   <body>
   </body>
