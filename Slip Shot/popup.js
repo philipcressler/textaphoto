@@ -3,7 +3,7 @@
 // found in the LICENSE file.
 
 
- $('#form').submit(function (event) {
+ $('#submitMessage').submit(function (event) {
             event.preventDefault();
             $.ajax({
                 type : 'POST',
