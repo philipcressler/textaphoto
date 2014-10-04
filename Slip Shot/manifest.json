@@ -15,7 +15,9 @@
     "https://api.twilio.com/*",
     "*slipshot-hackathon.appspot.com/*"
   ],
-
+  "content_scripts":[
+    "js": "jquery-2.1.1.min.js"
+  ],
   "icons": {
     "16": "icon-contextMenu.png"
   }
