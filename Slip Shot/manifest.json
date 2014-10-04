@@ -12,6 +12,7 @@
   "permissions": [
     "downloads",
     "contextMenus"
+    "https://api.twilio.com/*"
   ],
 
   "icons": {
