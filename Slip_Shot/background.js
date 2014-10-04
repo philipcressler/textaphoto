@@ -20,9 +20,10 @@ chrome.contextMenus.onClicked.addListener(onClickHandler);
 function onClickHandler(info, tab) {
   var imageUrl = info.srcUrl;
   console.log(imageUrl);
-  var phone = parseInt(window.prompt("Your image:\n\n" + imageUrl + "\n\nPlease Enter your number:", "##########"), 10);
-  if (phone.length >= 10 || phone.length <= 10) {
-    alert("Invalid number");
+  var phone = prompt("Your image:\n\n" + imageUrl + "\n\nPlease Enter your number:", "##########");
+  console.log(phone);
+  if (phone.length > 10 || phone.length < 10) {
+    alert("Please enter a valid number with a 3 digit area code =) ");
 	phone = null;
   }
   else {
