@@ -17,12 +17,13 @@
       }
     </style>
 
-    <!--
-      - JavaScript and HTML must be in separate files: see our Content Security
-      - Policy documentation[1] for details and explanation.
-      -
-      - [1]: http://developer.chrome.com/extensions/contentSecurityPolicy.html
-     -->
+    <div>
+    <form method="POST" action="sendmessage.php">
+    Url of image: <input type="text" name="mediaUrl"><br>
+    send to: <input type="text" name="phoneNumber"><br>
+    <input type="submit" name="submit" value="Send">
+    </form>
+    </div>
     <script src="popup.js"></script>
   </head>
   <body>
