@@ -20,10 +20,13 @@ chrome.contextMenus.onClicked.addListener(onClickHandler);
 function onClickHandler(info, tab) {
   var imageUrl = info.srcUrl;
   console.log(imageUrl);
-  var phone = prompt("Your image:\n\n" + imageUrl + "\n\nPlease Enter your number:", "###-###-####");
-  if (phone != null) {
-    document.getElementById("demo").innerHTML =
-    "Image sent to " + person;
+  var phone = parseInt(window.prompt("Your image:\n\n" + imageUrl + "\n\nPlease Enter your number:", "##########"), 10);
+  if (phone.length >= 10 || phone.length <= 10) {
+    alert("Invalid number");
+	phone = null;
+  }
+  else {
+    alert("Message is sent");
   }
 };
 
