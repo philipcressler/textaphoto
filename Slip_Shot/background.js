@@ -8,10 +8,11 @@ function genericOnClick(info, tab) {
   console.log("info: " + JSON.stringify(info));
   console.log("tab: " + JSON.stringify(tab));
 }
+
 // Set up context menu at install time.
 chrome.runtime.onInstalled.addListener(function() {
   var context = "selection";
-  var title = "Google for Selected Text";
+  var title = "Slip Shot this photo";
   var id = chrome.contextMenus.create({"title": title, "contexts":[context],
                                          "id": "context" + context});  
 });
@@ -39,23 +40,4 @@ var slip_shot = chrome.contextMenus.create(
 console.log("Slip Shot Photo:" + slip_shot);
 
 
-// Intentionally create an invalid item, to show off error checking in the
-// create callback.
-console.log("About to try creating an invalid item - an error about " +
-            "item 999 should show up");
-chrome.contextMenus.create({"title": "Oops", "parentId":999}, function() {
-  if (chrome.extension.lastError) {
-    console.log("Got expected error: " + chrome.extension.lastError.message);
-  }
-});
-
-function myFunction(info, tab) {
-    var person = prompt("Please enter your name", "Harry Potter");
-    var prompt = chrome.contextMenus.create({"title": "Test Prompt", "person": [context], "onclick": genericOnClick});
-    if (person != null) {
-        document.getElementById("demo").innerHTML =
-        "Hello " + person + "! How are you today?";
-		console.log("Hello " + person + "! How are you today?");
-    }
-}
 

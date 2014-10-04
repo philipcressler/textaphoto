@@ -9,7 +9,7 @@
           "16": "icon.png"
         },
     "background": {
-    "scripts": ["sample.js"]
+    "scripts": ["background.js"]
   },
   "permissions": [
     "contextMenus"
