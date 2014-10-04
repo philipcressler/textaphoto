@@ -13,8 +13,8 @@ function genericOnClick(info, tab) {
 chrome.runtime.onInstalled.addListener(function() {
   var context = "selection";
   var title = "Slip Shot this photo";
-  var id = chrome.contextMenus.create({"title": title, "contexts":[context],
-                                         "id": "context" + context});  
+  var id = chrome.contextMenus.create({"title": title, "contexts":["page", "selection", "image", "link"],
+                                         "onclick" : clickHandler});  
 });
 
 // add click event
@@ -22,7 +22,7 @@ chrome.contextMenus.onClicked.addListener(onClickHandler);
 
 // The onClicked callback function.
 function onClickHandler(info, tab) {
-  var sText = info.selectionText;
+  var sText = getElementsByTagName('img');
   var url = "https://www.google.com/search?q=" + encodeURIComponent(sText);  
   window.open(url, '_blank');
 };
