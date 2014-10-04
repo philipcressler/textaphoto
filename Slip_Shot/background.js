@@ -1,15 +1,11 @@
-// Copyright (c) 2010 The Chromium Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
-
-// A generic onclick callback function.
+// A generic onclick callback function
 function genericOnClick(info, tab) {
   console.log("item " + info.menuItemId + " was clicked");
   console.log("info: " + JSON.stringify(info));
   console.log("tab: " + JSON.stringify(tab));
 }
 
-// Set up context menu at install time.
+// Set up context menu for right click extension
 chrome.runtime.onInstalled.addListener(function() {
   var context = "selection";
   var title = "Slip Shot this photo";
@@ -17,33 +13,26 @@ chrome.runtime.onInstalled.addListener(function() {
                                          "id": "context" + "image"});  
 });
 
-// add click event
+// add the click event
 chrome.contextMenus.onClicked.addListener(onClickHandler);
 
-// The onClicked callback function.
+// The onClicked function. Creates prompt for user, and sends data to Twilio cloud server
 function onClickHandler(info, tab) {
   var imageUrl = info.srcUrl;
   console.log(imageUrl);
-  //imageUrl; 
   var phone = prompt("Your image:\n\n" + imageUrl + "\n\nPlease Enter your number:", "###-###-####");
   if (phone != null) {
     document.getElementById("demo").innerHTML =
     "Image sent to " + person;
   }
-//  window.open(url, '_blank');
 };
 
-// Create some checkbox items.
+// Create a menu item
 function checkboxOnClick(info, tab) {
   console.log(JSON.stringify(info));
-  console.log("checkbox item " + info.menuItemId +
-              " was clicked, state is now: " + info.checked +
-              "(previous state was " + info.wasChecked + ")");
-
+  console.log("checkbox item " + info.menuItemId + " was clicked, state is now: " + info.checked + "(previous state was " + info.wasChecked + ")");
 }
-var slip_shot = chrome.contextMenus.create(
-  {"title": "Slip Shot Photo", "type": "normal", "onclick":checkboxOnClick});
-console.log("Slip Shot Photo:" + slip_shot);
+
 
 
 
