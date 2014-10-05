@@ -3,21 +3,18 @@
   "manifest_version": 2,
 
   "name": "Slip Shot",
-  "description": "This extension will let the user send a photo from their desktop to their phone.",
+  "description": "This extension will allow the user to send a photo from their computer to their phone.",
   "version": "1.0",
 
         "icons": {
           "16": "icon.png"
         },
     "background": {
-    "scripts": ["background.js", "popup.html"]
+    "scripts": ["jquery-2.1.1.min.js", "background.js"]
   },
   "permissions": [
     "contextMenus"
-  ],
-    "browser_action": {
-	"default_icon": "icon.png",
-    "default_popup": "popup.html"
-  }
+  ]
+
 }
 

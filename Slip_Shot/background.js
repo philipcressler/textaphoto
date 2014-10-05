@@ -18,16 +18,25 @@ chrome.contextMenus.onClicked.addListener(onClickHandler);
 
 // The onClicked function. Creates prompt for user, and sends data to Twilio cloud server
 function onClickHandler(info, tab) {
-  var imageUrl = info.srcUrl;
-  console.log(imageUrl);
-  var phone = prompt("Your image:\n\n" + imageUrl + "\n\nPlease Enter your number:", "##########");
-  console.log(phone);
-  if (phone.length > 10 || phone.length < 10) {
-    alert("Please enter a valid number with a 3 digit area code =) ");
-	phone = null;
+  var str = info.srcUrl;
+  var num = prompt("Your image:\n\n" + str + "\n\nPlease Enter your number:", "##########");
+  if (jQuery.isNumeric(num) == true) {
+	  var form_data = "str=" + str + "&num=" + num;
+	  alert(form_data);
+	  if (num.length > 10 || num.length < 10) {
+		alert("Please enter a valid number with a 3 digit area code =) ");
+		num = null;
+	  }
+	  else {
+		var xhr = new XMLHttpRequest();
+		xhr.open('POST', 'https://slipshot-hackathon.appspot.com/', true);
+		xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+		xhr.send(form_data);
+		alert("Message is sent");
+	  }
   }
   else {
-    alert("Message is sent");
+    alert("Please enter a valid 10 digit phone number. Following this format 1111111111");
   }
 };
 
